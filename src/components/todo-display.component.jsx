@@ -5,6 +5,10 @@ import bgDesktopLight from '../assets/images/bg-desktop-light.jpg';
 import { ThemeContext } from './theme-context';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
+import { isTouchDevice } from "./utils";
+
+const backendForDND = isTouchDevice() ? TouchBackend : HTML5Backend;
 
 const TodoDisplay =()=>{
     const {toggleTheme} = useContext(ThemeContext);
@@ -14,7 +18,7 @@ const TodoDisplay =()=>{
                 style={{backgroundImage: `url(${!toggleTheme ? bgDesktopDark : bgDesktopLight})`, height:'18rem'}} 
                 className="w-screen h-64 bg-cover bg-center bg-no-repeat"
             />  
-            <DndProvider backend={HTML5Backend}>
+            <DndProvider backend={backendForDND}>
                 <TodoMenu/>    
             </DndProvider>
         </div>

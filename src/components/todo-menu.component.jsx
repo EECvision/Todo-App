@@ -72,8 +72,8 @@ const TodoMenu =()=>{
       };
 
     return (
-        <div className="absolute w-full max-w-lg flex flex-col items-center justify-center transform translate-y-16">
-            <div className="w-full flex items-center justify-between mb-16 px-4 sm:px-0">
+        <div className="absolute w-full max-w-lg flex flex-col items-center justify-center px-4 sm:px-0 transform translate-y-16">
+            <div className="w-full flex items-center justify-between mb-16">
                 <div className="text-white text-3xl font-medium tracking-widest uppercase">todo</div>
                 <div onClick={()=>{setToggleTheme(!toggleTheme); setTheme()}} className="cursor-pointer">
                     {
@@ -83,7 +83,7 @@ const TodoMenu =()=>{
                     }
                 </div>
             </div>
-            <div style={{background:`${todoItemBg}`}} className="w-full flex items-center justify-start rounded py-4 px-6 mb-4">
+            <div style={{background:`${todoItemBg}`}} className="w-full flex items-center justify-start rounded py-4 px-2 sm:px-6 mb-4">
                 <button
                     onClick={saveTodoItem}
                     style={{border: `1px solid ${checkBtnBorder}`}} className="w-5 h-5 rounded-full mr-4"
